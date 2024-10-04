@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        /* Overall page styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Calculator form styling */
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #95a3a1;
+            border-radius: 10px;
+            border-color: black;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Text input for result */
+        input[type="text"] {
+            font-family: 'Roboto Mono', monospace;
+            width: 210px;
+            padding: 15px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            background-color: #58b067;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Button styles */
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #3f4a41;
+            color: white;
+            border: 4px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            width: 70px;
+        }
+
+        /* Button hover effect */
+        input[type="button"]:hover {
+            background-color: orange;
+        }
+
+        /* Special styles for symbols and operations */
+        #symbol {
+            background-color: #4284f5;
+        }
+
+        #clear {
+            background-color: red;
+        }
+
+        /* Title styling */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Style adjustments for back button */
+        #back,#clear,#enter{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <form name="calc">
+        <input type="text" name="results" id="result" readonly> <br>
+        
+        <!-- Number and operation buttons -->
+        <input type="button" value="1" onclick="calc.results.value += '1'">
+        <input type="button" value="2" onclick="calc.results.value += '2'">
+        <input type="button" value="3" onclick="calc.results.value += '3'">
+        <input type="button" value="+" id="symbol" onclick="calc.results.value += '+'"><br>
+
+        <input type="button" value="4" onclick="calc.results.value += '4'">
+        <input type="button" value="5" onclick="calc.results.value += '5'">
+        <input type="button" value="6" onclick="calc.results.value += '6'">
+        <input type="button" value="-" id="symbol" onclick="calc.results.value += '-'"><br>
+
+        <input type="button" value="7" onclick="calc.results.value += '7'">
+        <input type="button" value="8" onclick="calc.results.value += '8'">
+        <input type="button" value="9" onclick="calc.results.value += '9'">
+        <input type="button" value="*" id="symbol" onclick="calc.results.value += '*'"><br>
+
+        <input type="button" value="Back" id="back" onclick="backspace()">
+        <input type="button" value="/" id="symbol" onclick="calc.results.value += '/'">
+        <input type="button" value="." id="symbol" onclick="calc.results.value += '.'"><br>
+
+        <input type="button" value="Clear" id="clear" onclick="calc.results.value = ''">
+        <input type="button" value="Enter" id="enter" onclick="calc.results.value = eval(calc.results.value)">
+        <input type="button" value="&#9664;" id="symbol" onclick="calc.results.value += '.'"><br>
+
+    </form>
+
+    <script>
+        /* Backspace function */
+        function backspace() {
+            calc.results.value = calc.results.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
